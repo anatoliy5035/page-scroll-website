@@ -1,0 +1,105 @@
+// Normally mainpage styles
+.section
+  width: 100%
+  height: 100vh
+  background-size: cover
+  background-position: center center
+  opacity: 1
+  visibility: inherit
+  z-index: 20
+
+
+.tp-mask-wrap
+  width: 60px
+  height: 60px
+  padding: 18px
+  position: fixed
+  right: 10px
+  top: 20px
+  cursor: pointer
+  &.active
+    span
+
+      &:nth-child(2)
+        margin: 3px 0
+        transform: rotate(-45deg)
+        opacity: 0
+
+      &:first-child
+        transform: translateY(8px) rotate(-45deg)
+
+      &:last-child
+        transform: translateY(-6px) rotate(-135deg)
+
+  span
+    background: #fff
+    display: block
+    width: 30px
+    margin-bottom: 5px
+    height: 3px
+    +tr(all .7s)
+    pointer-events: none
+    transform-style: flat !important
+
+.menu
+  position: fixed
+  right: -100%
+  top: 110px
+  +tr(all .5s)
+  &__active
+    right: 0
+
+  .menu__wrap
+    display: inline-block
+  li
+    z-index: 6
+    white-space: nowrap
+    text-align: right
+    a
+      color: white
+      text-decoration: none
+      background-color: rgb(8, 193, 243)
+      display: inline-block
+      padding: 5px 20px
+      margin-bottom: 3px
+
+
+.first-section
+  text-align: center
+  &__caption
+    text-transform: uppercase
+    +fs(14)
+
+  &__logo
+    position: fixed
+    top: 33px
+    left: 20px
+    width: 30%
+    +r(600)
+      width: 50%
+    .logo
+      max-width: 100%
+
+.fp-tableCell
+  +r(600)
+    padding-top: 77px
+
+.services-block__container
+  max-width: 340px
+  float: right
+  margin-right: 20%
+  +r(600)
+    float: none
+    margin-left: 10%
+
+.services-block
+  margin-bottom: 5%
+
+.service-block__price
+  font-weight: bold
+  +fs(30)
+  +r(600)
+    +fs(26)
+
+.service-block__caption
+  +fs(14)

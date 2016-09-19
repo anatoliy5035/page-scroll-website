@@ -1,0 +1,86 @@
+$icons: (0:0)
+$icons: map-merge($icons,(characteristics-icon2: (X: 0px, Y:-87px, W: 49px, H: 24px, TW: 163px, TH: 111px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(characteristics-icon3: (X: -126px, Y:0px, W: 37px, H: 31px, TW: 163px, TH: 111px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(characteristics-icon4: (X: 0px, Y:0px, W: 40px, H: 40px, TW: 163px, TH: 111px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(characteristics-icon5: (X: -44px, Y:0px, W: 40px, H: 40px, TW: 163px, TH: 111px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(characteristics-icon6: (X: -88px, Y:0px, W: 34px, H: 38px, TW: 163px, TH: 111px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(characteristics-icon7: (X: 0px, Y:-44px, W: 39px, H: 39px, TW: 163px, TH: 111px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(characteristics-icon8: (X: -43px, Y:-44px, W: 37px, H: 37px, TW: 163px, TH: 111px, IMG: '../img/icons.png')))
+
+
+// Gets an attribute from the sass map
+@function icon-attr($icon, $attr)
+	$icon: map-get($icons, $icon)
+	@return map-get($icon, $attr)
+
+@mixin sprite($iconName)
+	background-image: url(icon-attr($iconName, IMG))
+	width: icon-attr($iconName, W)
+	height: icon-attr($iconName, H)
+	background-position: icon-attr($iconName, X) icon-attr($iconName, Y)
+@mixin sprite-position($iconName)
+	background-position: icon-attr($iconName, X) icon-attr($iconName, Y)
+@mixin sprite-retina($iconName)
+	background-image: url(icon-attr($iconName, IMG))
+	$width: icon-attr($iconName, W)
+	$height: icon-attr($iconName, H)
+	width: $width/2
+	height: $height/2
+	$x: icon-attr($iconName, X)
+	$y: icon-attr($iconName, Y)
+	background-position: $x/2 $y/2
+	$tw: icon-attr($iconName, TW) 	
+	$th: icon-attr($iconName, TH)
+	background-size: $tw/2 $th/2  	
+
+
+@mixin s($i)
+	+sprite($i)
+@mixin sp($i)
+	+sprite-position($i)
+@mixin sr($i)
+	+sprite-retina($i)	
+
+//
+//.icon-characteristics-icon2
+//	width: 49px
+//	height: 24px
+//	background-image: url('../img/icons.png')
+//	background-position: 0px -87px
+//
+//.icon-characteristics-icon3
+//	width: 37px
+//	height: 31px
+//	background-image: url('../img/icons.png')
+//	background-position: -126px 0px
+//
+//.icon-characteristics-icon4
+//	width: 40px
+//	height: 40px
+//	background-image: url('../img/icons.png')
+//	background-position: 0px 0px
+//
+//.icon-characteristics-icon5
+//	width: 40px
+//	height: 40px
+//	background-image: url('../img/icons.png')
+//	background-position: -44px 0px
+//
+//.icon-characteristics-icon6
+//	width: 34px
+//	height: 38px
+//	background-image: url('../img/icons.png')
+//	background-position: -88px 0px
+//
+//.icon-characteristics-icon7
+//	width: 39px
+//	height: 39px
+//	background-image: url('../img/icons.png')
+//	background-position: 0px -44px
+//
+//.icon-characteristics-icon8
+//	width: 37px
+//	height: 37px
+//	background-image: url('../img/icons.png')
+//	background-position: -43px -44px
+//
